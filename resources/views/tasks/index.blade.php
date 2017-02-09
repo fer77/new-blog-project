@@ -66,15 +66,21 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-          <p>Hello, <?= $name; ?> your <a href="/tasks/">tasks</a> for today</p>
+          <div class="top-right links"></div>
 
-                <div class="top-right links"></div>
+          <div class="content">
+              <div class="title m-b-md"></div>
 
-            <div class="content">
-                <div class="title m-b-md"></div>
-
-                <div class="links"></div>
-            </div>
+              <div class="links">
+                <ul style="list-style-type: none; text-align: left;">
+                  @foreach ($tasks as $task)
+                  <li>
+                    <a href="/tasks/{{ $task->id }}">{{ $task->body }}</a>
+                  </li>
+                  @endforeach
+                </ul>
+              </div>
+          </div>
         </div>
     </body>
 </html>

@@ -66,7 +66,7 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-          <p>Hello, <?= $name; ?> your <a href="/tasks/">tasks</a> for today</p>
+          <p><a href="/tasks/">{{ $task->body }}</a></p>
 
                 <div class="top-right links"></div>
 

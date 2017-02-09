@@ -13,12 +13,20 @@
 
 Route::get('/', function () {
   $name = 'Bob';
-  $tasks = [
-    'Open store',
-    'Name for burger of the day',
-    'Clean the grill',
-    'Close the restaurant'
-  ];
+  $tasks = DB::table('tasks')->get();
 
     return view('welcome', compact('name', 'tasks'));
+});
+
+Route::get('/tasks', function () {
+  $tasks = DB::table('tasks')->latest()->get();
+
+    return view('tasks.index', compact('tasks'));
+});
+
+
+Route::get('/tasks/{task}', function ($id) {
+  $task = DB::table('tasks')->find($id);
+  
+  return view('tasks.show', compact('task'));
 });
