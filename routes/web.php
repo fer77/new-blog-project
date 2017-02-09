@@ -16,7 +16,8 @@ Route::get('/', function () {
   $tasks = [
     'Open store',
     'Name for burger of the day',
-    'Clean the grill'
+    'Clean the grill',
+    'Close the restaurant'
   ];
 
     return view('welcome', compact('name', 'tasks'));
