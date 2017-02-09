@@ -11,6 +11,8 @@
 |
 */
 
+use App\Task;
+
 Route::get('/', function () {
   $name = 'Bob';
   $tasks = DB::table('tasks')->get();
@@ -19,14 +21,21 @@ Route::get('/', function () {
 });
 
 Route::get('/tasks', function () {
-  $tasks = DB::table('tasks')->latest()->get();
+  //* Query builder:
+  //$tasks = DB::table('tasks')->latest()->get();
+
+  //* Eloquent:
+  $tasks = Task::all();
 
     return view('tasks.index', compact('tasks'));
 });
 
-
 Route::get('/tasks/{task}', function ($id) {
-  $task = DB::table('tasks')->find($id);
-  
+  //* Query builder:
+  //$task = DB::table('tasks')->find($id);
+
+  //* Eloquent:
+  $task = Task::find($id);
+
   return view('tasks.show', compact('task'));
 });
