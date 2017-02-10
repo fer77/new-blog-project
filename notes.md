@@ -21,3 +21,12 @@
 ### Workflow
 ---------------
 Create a model `php artisan make:model <give it a name> -m`
+
+## 8 Controllers
+
+**Controllers (middleman)** Receives (delegates) a request (home-page) it compiles the data from the model and passes it to the view to be rendered.
+
+Controllers are declared within our web.php and kept in app>Http>Controllers
+
+### Creating a controller:
+`php artisan make:controller TasksController` Will place our controller in our controller directory.

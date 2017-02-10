@@ -11,31 +11,14 @@
 |
 */
 
-use App\Task;
+//* Our first controllers:
+                      //* Name of the controller and the method (@index) responsible for the URI (/tasks).
+Route::get('/tasks', 'TasksController@index');
+Route::get('/tasks/{task}', 'TasksController@show');
 
 Route::get('/', function () {
   $name = 'Bob';
   $tasks = DB::table('tasks')->get();
 
     return view('welcome', compact('name', 'tasks'));
-});
-
-Route::get('/tasks', function () {
-  //* Query builder:
-  //$tasks = DB::table('tasks')->latest()->get();
-
-  //* Eloquent:
-  $tasks = Task::all();
-
-    return view('tasks.index', compact('tasks'));
-});
-
-Route::get('/tasks/{task}', function ($id) {
-  //* Query builder:
-  //$task = DB::table('tasks')->find($id);
-
-  //* Eloquent:
-  $task = Task::find($id);
-
-  return view('tasks.show', compact('task'));
 });
