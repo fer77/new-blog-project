@@ -30,3 +30,7 @@ Controllers are declared within our web.php and kept in app>Http>Controllers
 
 ### Creating a controller:
 `php artisan make:controller TasksController` Will place our controller in our controller directory.
+
+## 9 Route Model Binding
+
+**Route model binding** When registering a rout your "wield card" needs to match your variable name.  What it does is a `Task::find(wildcard;)` for us.

@@ -15,6 +15,7 @@
                       //* Name of the controller and the method (@index) responsible for the URI (/tasks).
 Route::get('/tasks', 'TasksController@index');
 Route::get('/tasks/{task}', 'TasksController@show');
+                    //* This "wild card" is the $id being passed to our show() method.  It can be passed as $id or further simplified as (Task $task).
 
 Route::get('/', function () {
   $name = 'Bob';
