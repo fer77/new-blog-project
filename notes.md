@@ -34,3 +34,7 @@ Controllers are declared within our web.php and kept in app>Http>Controllers
 ## 9 Route Model Binding
 
 **Route model binding** When registering a rout your "wield card" needs to match your variable name.  What it does is a `Task::find(wildcard;)` for us.
+
+## 10 Layouts and Structure
+
+`php artisan make:model Post -mc` Creates a Post model and both the migration and controller for it.

@@ -11,15 +11,10 @@
 |
 */
 
-//* Our first controllers:
-                      //* Name of the controller and the method (@index) responsible for the URI (/tasks).
-Route::get('/tasks', 'TasksController@index');
-Route::get('/tasks/{task}', 'TasksController@show');
-                    //* This "wild card" is the $id being passed to our show() method.  It can be passed as $id or further simplified as (Task $task).
+Route::get('/', 'PostsController@index');
+//* What will need for this:           These can be created using:                     or        When we create our model, we also create the other two:
+//* controller =>PostsController       php artisan make:controller PostsController                php artisan make:model Post -mc
+//* Eloquent model => Post             php artisan make:model Post
+//* migration => create_posts_table    php artisan make:migration create_posts_table --create=posts
 
-Route::get('/', function () {
-  $name = 'Bob';
-  $tasks = DB::table('tasks')->get();
-
-    return view('welcome', compact('name', 'tasks'));
-});
+Route::get('/posts/{post}', 'PostsController@show');
