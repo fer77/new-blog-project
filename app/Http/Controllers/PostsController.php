@@ -42,12 +42,16 @@ class PostsController extends Controller
 
     	//* Save it to the database
     	//$post->save();
+       
+        //* Before we create a post we want to validate the data:
+         $this->validate(request(), [
+            //* Validation requirements:
+            'title' => 'required',
+            'body' => 'required'
+            ]);
     	
     	//* This simplifies the above and automatically saves it:
-    	POST::create([
-    		'title' => request('title'),
-    		'body' => request('body')
-    		]); //* This will throw an error if we do not specify these fields.  Set them in our Post.php
+    	POST::create(request(['title', 'body'])); //* This will throw an error if we do not specify these fields.  Set them in our Post.php
 
     	//* And redirect somehere in the app (i.e. homepage)
     	return redirect('/');

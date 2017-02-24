@@ -7,17 +7,23 @@
 	<!-- This will return a hidden input (see laravel docs) -->
 	{{ csrf_field() }}
 
+	@include('layouts.errors')
+
 	  <div class="form-group">
 	    <label for="title">Title</label>
 	    <input type="text" class="form-control" id="title" placeholder="Title" name="title">
 	  </div>
+
+	  <!-- Add form validation in PostsController.php -->
 
 	  <div class="form-group">
 	    <label for="body">Body</label>
 	    <textarea class="form-control" id="body" name="body"></textarea>
 	  </div>
 
-	  <button type="submit" class="btn btn-primary">Publish</button>
+	  <div class="form-group">
+	  	<button type="submit" class="btn btn-primary">Publish</button>
+	  </div>
 	</form>
 
 @endsection
