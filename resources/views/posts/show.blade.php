@@ -2,6 +2,10 @@
 
 @section('content')
 
-  <h1>A Place to show posts.</h1>
+  <h1>{{ $post->title }}</h1>
+
+  <p>
+  	{{ $post->body }}
+  </p>
 
 @endsection

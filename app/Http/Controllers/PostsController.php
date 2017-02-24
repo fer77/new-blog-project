@@ -10,12 +10,17 @@ class PostsController extends Controller
 {
     public function index() //* This is called a controller action.
     {
-      return view('posts.index'); //* The name here will correspond to the controller action.
+        //* You can order "posts by..." here:
+        //* Populate our blog with our blogs.
+        $posts = Post::latest()->get();
+
+                    //* Now this view will have access to a collection of all posts.
+        return view('posts.index', compact('posts')); //* The name here will correspond to the controller action.
     }
 
-    public function show()
+    public function show(Post $post)
     {
-      return view('posts.show');
+        return view('posts.show', compact('post'));
     }
 
         public function create()

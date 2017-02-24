@@ -17,7 +17,7 @@ Route::get('/', 'PostsController@index');
 //* Eloquent model => Post             php artisan make:model Post
 //* migration => create_posts_table    php artisan make:migration create_posts_table --create=posts
 
-// Route::get('/posts/{post}', 'PostsController@show');
+Route::get('/posts/{post}', 'PostsController@show');
 Route::get('/posts/create', 'PostsController@create');
 
 //* When we respond to a POST request:
