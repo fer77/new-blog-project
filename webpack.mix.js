@@ -11,5 +11,7 @@ const { mix } = require('laravel-mix');
  |
  */
 
+//* Laravel uses 'mix' as a configuration layer around webpack to make things simple to do by using methods.
+			//* Takes this file and 	//* compile it in this directory.
 mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');
