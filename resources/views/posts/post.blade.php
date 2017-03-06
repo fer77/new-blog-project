@@ -6,8 +6,5 @@
   </h2>
   <p class="blog-post-meta">{{ $post->created_at->toFormattedDateString() }}</p>
   <!-- Time stamps here are instances of a library called carbon -->
-
-
   {{ $post->body }}
-  
 </div><!-- /.blog-post -->

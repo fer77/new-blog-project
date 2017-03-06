@@ -17,6 +17,7 @@ Route::get('/', 'PostsController@index');
 //* Eloquent model => Post             php artisan make:model Post
 //* migration => create_posts_table    php artisan make:migration create_posts_table --create=posts
 
+                    //* Wildcard *//
 Route::get('/posts/{post}', 'PostsController@show');
 Route::get('/posts/create', 'PostsController@create');
 
@@ -25,11 +26,11 @@ Route::post('/posts', 'PostsController@store'); // Don't forget to run the 'php 
 
 //* To post a post to our database this needs to happen:
 
-//* If we can represent a resource like 
+//* If we can represent a resource like
 //* GET /posts
 //
 //* To view all of the posts we would visit:
-//* /posts  This is similar to "selsect *" from 
+//* /posts  This is similar to "selsect *" from
 //
 //* To create a post:
 //* GET /posts/create  This will display a form to create a post.
