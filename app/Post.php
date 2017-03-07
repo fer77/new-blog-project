@@ -10,4 +10,8 @@ class Post extends Model
     //* $guarded the inverse of $fillabel.  Specify the fields we do not want to allow to be accepted. Setting this to an empty array will guard nothing:
     //protected $guarded = [];
     //protected $fillable = ['title', 'body'];
+    public function comments()
+    {                             //* Same as saying App\Comment
+      return $this->hasMany(Comment::class);
+    }
 }
