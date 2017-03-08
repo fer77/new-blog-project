@@ -44,3 +44,5 @@ Route::post('/posts', 'PostsController@store'); // Don't forget to run the 'php 
 //* PATCH /posts/{id}
 //* To delete a post
 //* DELETE /posts/{id}
+
+Route::post('/posts{post}/comments', 'CommentsController@store');

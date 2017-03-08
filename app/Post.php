@@ -15,3 +15,14 @@ class Post extends Model
       return $this->hasMany(Comment::class);
     }
 }
+
+public function addComment($body)
+{
+  //* $this->comments() //returns all comments
+  //* $this->comments()-create() //fires a method and ads an id to the post, because of the relationship setup here.
+  $this->comments()->create(compact('body'));
+  // Comment::create([
+  //   'body' => $body,
+  //   'post_id' => $post_id;
+  // ]);
+}
