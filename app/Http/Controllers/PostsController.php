@@ -18,17 +18,17 @@ class PostsController extends Controller
         return view('posts.index', compact('posts')); //* The name here will correspond to the controller action.
     }
                             //* Wildcard from web.php
-    public function show(Post $post)
+public function show(Post $post)
     {
         return view('posts.show', compact('post'));
     }
 
-        public function create()
+public function create()
     {
       return view('posts.create');
     }
 
-        public function store()
+public function store()
     {
     //dd(request()->all());
     //* or
@@ -49,11 +49,11 @@ class PostsController extends Controller
     	//$post->save();
 
         //* Before we create a post we want to validate the data:
-         //$this->validate(request(), [
+         $this->validate(request(), [
             //* Validation requirements:
-            //'title' => 'required',
-            //'body' => 'required'
-            //]);
+            'title' => 'required',
+            'body' => 'required'
+            ]);
 
     	//* This simplifies the above and automatically saves it:
     	POST::create(request(['title', 'body'])); //* This will throw an error if we do not specify these fields.  Set them in our Post.php
