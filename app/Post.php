@@ -16,7 +16,7 @@ class Post extends Model
     }
 }
 
-public function addComment($body)
+function addComment($body)
 {
   //* $this->comments() //returns all comments
   //* $this->comments()-create() //fires a method and ads an id to the post, because of the relationship setup here.
