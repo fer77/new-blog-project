@@ -18,8 +18,8 @@ Route::get('/', 'PostsController@index');
 //* migration => create_posts_table    php artisan make:migration create_posts_table --create=posts
 
                     //* Wildcard *//
+Route::get('/posts/create', 'PostsController@create');          
 Route::get('/posts/{post}', 'PostsController@show');
-Route::get('/posts/create', 'PostsController@create');
 
 //* When we respond to a POST request:
 Route::post('/posts', 'PostsController@store'); // Don't forget to run the 'php artisan make:controller TasksController -r' The -r makes it a "resoursful" controller.
