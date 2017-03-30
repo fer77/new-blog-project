@@ -11,6 +11,7 @@
 
 	  <div class="form-group">
 	    <label for="title">Title</label>
+	    				<!-- If we want to submit to a server we need to add a name prop to the <input> tag -->
 	    <input type="text" class="form-control" id="title" placeholder="Title" name="title">
 	  </div>
 
@@ -18,7 +19,7 @@
 
 	  <div class="form-group">
 	    <label for="body">Body</label>
-	    <textarea class="form-control" id="body" name="body"></textarea>
+	    <textarea class="form-control" id="body" placeholder="Start Typing" name="body"></textarea>
 	  </div>
 
 	  <div class="form-group">
