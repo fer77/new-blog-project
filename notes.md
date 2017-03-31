@@ -38,3 +38,13 @@ Controllers are declared within our web.php and kept in app>Http>Controllers
 ## 10 Layouts and Structure
 
 `php artisan make:model Post -mc` Creates a Post model and both the migration and controller for it.
+
+## 18 Associating Users with Comments
+
+To create a new test user in our app:
+`php artisan tinker`
+`$user = new App\User;`
+`$user->name = 'Gene Belcher'`
+`$user->email = belchtoglory@email.com`
+`$user->password = bcrypt('secret');` bcrypt() creates a token associated to this pass word.  This will not show the password in MySql.
+`$user->save();`
