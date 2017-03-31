@@ -45,4 +45,5 @@ Route::post('/posts', 'PostsController@store'); // Don't forget to run the 'php 
 //* To delete a post
 //* DELETE /posts/{id}
 
-Route::post('/posts{post}/comments', 'CommentsController@store');
+Route::post('/posts/{post}/comments', 'CommentsController@store');
+										// When creating a new controller you can return to your "common action names"

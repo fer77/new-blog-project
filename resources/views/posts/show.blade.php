@@ -23,10 +23,11 @@
 {{-- Add a comment --}}
 <div class="card">
   <div class="card-block">
+    <!-- We are creating a comment, the method should be POST. -->
     <form method="POST" action="/posts/{{ $post->id }}/comments">
       {{ csrf_field() }}
       <div class="form-group">
-        <textarea name="body" placeholder="Add your comment here" class="form-control" required></textarea>
+        <textarea name="body" placeholder="Comment on this post" class="form-control" required></textarea>
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Add Comment</button>
