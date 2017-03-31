@@ -11,7 +11,7 @@ class Post extends Model
     //protected $guarded = [];
     //protected $fillable = ['title', 'body'];
     public function comments()
-    {                             //* Same as saying App\Comment
+    {                       //* Same as saying App\Comment
       return $this->hasMany(Comment::class);
     }
 }
