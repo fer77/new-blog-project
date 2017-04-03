@@ -48,3 +48,7 @@ To create a new test user in our app:
 `$user->email = belchtoglory@email.com`
 `$user->password = bcrypt('secret');` bcrypt() creates a token associated to this pass word.  This will not show the password in MySql.
 `$user->save();`
+
+##19
+
+adding  `'password' => 'required|confirmed'` to our RegistrationController tells Laravel to look for a "password_required" in one of out inputs on the form field.

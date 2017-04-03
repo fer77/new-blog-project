@@ -11,14 +11,14 @@
 |
 */
 
-Route::get('/', 'PostsController@index');
+Route::get('/', 'PostsController@index')->name('home');
 //* What will need for this:           These can be created using:                     or        When we create our model, we also create the other two:
 //* controller =>PostsController       php artisan make:controller PostsController                php artisan make:model Post -mc
 //* Eloquent model => Post             php artisan make:model Post
 //* migration => create_posts_table    php artisan make:migration create_posts_table --create=posts
 
                     //* Wildcard *//
-Route::get('/posts/create', 'PostsController@create');          
+Route::get('/posts/create', 'PostsController@create');
 Route::get('/posts/{post}', 'PostsController@show');
 
 //* When we respond to a POST request:
@@ -47,3 +47,10 @@ Route::post('/posts', 'PostsController@store'); // Don't forget to run the 'php 
 
 Route::post('/posts/{post}/comments', 'CommentsController@store');
 										// When creating a new controller you can return to your "common action names"
+//* When a controller starts getting bloated and/or start adding a lot of methods that are not one of the seven actions (create, show, store, delete, update...).  Start extracting controllers with more specific responsabilities.
+
+Route::get('/register', 'RegistrationController@create'); //* php artisan make:controller RegistrationController
+Route::post('/register', 'RegistrationController@store');
+Route::get('/login', 'SessionController@create'); //* php artisan make:controller SessionController
+Route::post('/login', 'SessionController@store');
+Route::get('/logout', 'SessionController@destroy');

@@ -8,6 +8,10 @@ use App\Post;
 
 class PostsController extends Controller
 {
+  public function __construct()
+  {
+    $this->middleware('auth')->except(['index', 'show']);
+  }
     public function index() //* This is called a controller action.
     {
         //* You can order "posts by..." here:
@@ -55,8 +59,14 @@ public function store()
             'body' => 'required'
             ]);
 
+            auth()->user()->publish(new Post(request(['title', 'body'])));
+
     	//* This simplifies the above and automatically saves it:
-    	POST::create(request(['title', 'body'])); //* This will throw an error if we do not specify these fields.  Set them in our Post.php
+    	// POST::create([
+      //     'title' => request('title'),
+      //     'body' => request('body'),
+      //     'user_id' => auth()->id()
+      //   ]); //* This will throw an error if we do not specify these fields.  Set them in our Post.php
 
     	//* And redirect somehere in the app (i.e. homepage)
     	return redirect('/');
