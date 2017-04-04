@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Carbon\Carbon;
+
 class Post extends Model
 {
     //* All this moved to our app/Model.php
@@ -30,5 +32,15 @@ public function user() //* $post->user or $comment->post->user
     //   'body' => $body,
     //   'post_id' => $this->id;
     // ]);
+  }
+  //* Create a query scope
+  public function scopeFilter($query, $filters)
+  {
+    if ($month = $filters['month']) {
+      $query->whereMonth('created_at', Carbon::parse($month)->month); //* convert March => 3, May => 5...we can use Carbon.
+    }
+    if ($year = $filters['year']) {
+      $query->whereYear('created_at', $year);
+    }
   }
 }
