@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Post;
+use Carbon\Carbon;
 
 class PostsController extends Controller
 {
@@ -14,12 +15,31 @@ class PostsController extends Controller
   }
     public function index() //* This is called a controller action.
     {
+      //* When things start to get crowded or gross refactor:
+      $posts = Post::latest()
+      ->filter(request(['month', 'year']))
+      ->get();
+
         //* You can order "posts by..." here:
         //* Populate our blog with our blogs.
-        $posts = Post::latest()->get();
+        // $posts = Post::latest();
+        //
+        // if ($month = request('month')) {
+        //   $posts->whereMonth('created_at', Carbon::parse($month)->month); //* convert March => 3, May => 5...we can use Carbon.
+        // }
+        // if ($year = request('year')) {
+        //   $posts->whereYear('created_at', $year);
+        // }
+        // $posts = $posts->get();
+
+        $archives = Post::selectRaw('year(created_at) year, monthname(created_at) month, count(*) published')
+        ->groupBy('year', 'month')
+        ->orderByRaw('min(created_at) desc')
+        ->get()
+        ->toArray();
 
                     //* Now this view will have access to a collection of all posts.
-        return view('posts.index', compact('posts')); //* The name here will correspond to the controller action.
+        return view('posts.index', compact('posts', 'archives')); //* The name here will correspond to the controller action.
     }
                             //* Wildcard from web.php
 public function show(Post $post)
