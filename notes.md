@@ -52,3 +52,24 @@ To create a new test user in our app:
 ##19
 
 adding  `'password' => 'required|confirmed'` to our RegistrationController tells Laravel to look for a "password_required" in one of out inputs on the form field.
+
+##20
+
+How to use eloquent to make SQL queries.
+
+SQL:
+`select
+	year(created_at) year,
+	monthname(created_at) month,
+	count(*) published
+from posts
+group by year, month`
+
+Eloquent:
+`App\Post::selectRaw('year(created_at) year, monthname(created_at) month, count(*) published')->groupBy('year', 'month')->get()->toArray();`
+
+Carbon:
+`Carbon\Carbon::parse('May');` returns an instance of May.
+`Carbon\Carbon::parse('May')->month;` returns the month #
+`Carbon\Carbon::parse('May')->year;` returns 2017
+`Carbon\Carbon::parse('May')->day;` returns day #
