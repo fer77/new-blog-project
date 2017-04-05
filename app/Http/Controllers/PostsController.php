@@ -32,14 +32,7 @@ class PostsController extends Controller
         // }
         // $posts = $posts->get();
 
-        $archives = Post::selectRaw('year(created_at) year, monthname(created_at) month, count(*) published')
-        ->groupBy('year', 'month')
-        ->orderByRaw('min(created_at) desc')
-        ->get()
-        ->toArray();
-
-                    //* Now this view will have access to a collection of all posts.
-        return view('posts.index', compact('posts', 'archives')); //* The name here will correspond to the controller action.
+        return view('posts.index', compact('posts')); //* The name here will correspond to the controller action.
     }
                             //* Wildcard from web.php
 public function show(Post $post)
