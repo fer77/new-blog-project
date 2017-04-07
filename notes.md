@@ -73,3 +73,18 @@ Carbon:
 `Carbon\Carbon::parse('May')->month;` returns the month #
 `Carbon\Carbon::parse('May')->year;` returns 2017
 `Carbon\Carbon::parse('May')->day;` returns day #
+
+## 22 Testing
+**test>feature**: For the largest features.
+**unit**: Lower level features.
+
+To get started enter `phpunit` if vendor/bin/ is not in our path type out `vendor/bin/phpunit`
+
+Laravel offers model factories: database>factories>modelFactory.
+**modelFactory** The blueprint for an eloquent model.  New records (dummy records) can be saved to the database(not persisted, unles "create()" is passed instead of "make()").  Passing a number as a second argument will create that many "fake" users:
+`php artisan tinker`
+`factory('App\User', #)->make();`
+
+These dummy posts should go into a custom test SQL database:
+`mysql -uroot -p`
+`create database blog_testing;`
