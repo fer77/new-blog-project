@@ -88,3 +88,9 @@ Laravel offers model factories: database>factories>modelFactory.
 These dummy posts should go into a custom test SQL database:
 `mysql -uroot -p`
 `create database blog_testing;`
+
+## 23
+If we wanted to move methods from our PostsController.php and make them into more dedicated classes.
+
+**Automatic Dependency injection** or **Automatic resolution** Included with laravel.  If we want an instance of a class we can pass it as an argument in one of our functions:
+`function(Posts $posts)...`
