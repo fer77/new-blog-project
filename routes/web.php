@@ -11,6 +11,8 @@
 |
 */
 
+dd(resolve('App\Billing\Stripe'));
+
 Route::get('/', 'PostsController@index')->name('home');
 //* What will need for this:           These can be created using:                     or        When we create our model, we also create the other two:
 //* controller =>PostsController       php artisan make:controller PostsController                php artisan make:model Post -mc
