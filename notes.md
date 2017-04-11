@@ -94,3 +94,22 @@ If we wanted to move methods from our PostsController.php and make them into mor
 
 **Automatic Dependency injection** or **Automatic resolution** Included with laravel.  If we want an instance of a class we can pass it as an argument in one of our functions:
 `function(Posts $posts)...`
+
+## 24
+Helper functions:
+View => view()
+Request => request()
+App => app()
+
+To bind into a container you must provide a class path, i.e. `App\Billing\Stripe`
+A lot of the services we make will be stored in config->services.php
+To use something from the config file provide the name of the config file and access them with dot notation `services.stripe.secret`.
+Do not reference things in your config files, instead reference environment variables.  Store secrete keys in our .env file.
+
+**singleton** single instance of our class.  Builds up the exact same instance, not building up a new one every time.
+
+## 25
+**Service container**: Registers any key into the container and associate it with some value.
+
+**service containers** are loaded through: config->app->**'providers'**:
+These are the building blocks of **Laravel**.  In here we have Laravel Framework Service Providers... and Package Service Providers... and Application Service Providers... where we can register providers for our project, i.e. `php artisan make:provider SocialMediaServiceProvider`
