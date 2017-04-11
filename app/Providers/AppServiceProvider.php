@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use \App\Billing\Stripe;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -12,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
      //* After all service providers have been registered Laravel will filter again and call boot.
-     //* THis is a place where you can perform any action or logic with the assumption is already loaded.
+     //* This is a place where you can perform any action or logic with the assumption is already loaded.
     public function boot()
     {
         //* Register a view composer, with a view facade.
@@ -30,8 +31,11 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
      //* We can bind things itno the service container.
+     //* The register method is use for to register things into the service container.
     public function register()
     {
-        //
+        $this->app->singleton(Stripe::class, function() {
+          return new Stripe(config('services.stripe.secret'));
+        });
     }
 }
