@@ -34,8 +34,6 @@ class AppServiceProvider extends ServiceProvider
      //* The register method is use for to register things into the service container.
     public function register()
     {
-        $this->app->singleton(Stripe::class, function() {
-          return new Stripe(config('services.stripe.secret'));
-        });
+        //
     }
 }
