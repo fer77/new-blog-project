@@ -113,3 +113,9 @@ Do not reference things in your config files, instead reference environment vari
 
 **service containers** are loaded through: config->app->**'providers'**:
 These are the building blocks of **Laravel**.  In here we have Laravel Framework Service Providers... and Package Service Providers... and Application Service Providers... where we can register providers for our project, i.e. `php artisan make:provider SocialMediaServiceProvider`
+
+## 26
+How does Laravel send email:
+config->mail.php There we can specify one of many supported mail drivers.
+mailtrap.io works well for testing email.
+email from address can be changed rom config/mail.php there's a global from address.
