@@ -119,3 +119,15 @@ How does Laravel send email:
 config->mail.php There we can specify one of many supported mail drivers.
 mailtrap.io works well for testing email.
 email from address can be changed rom config/mail.php there's a global from address.
+
+## 27
+
+`php artisan make:mail WelcomeAgain --markdown="emails.welcome-again` instead of referencing a `->view` it references `->markdown`, it also generets a component to use in our `welcome-again.blade.php` and provides inline styles to our email.
+
+To try this out:
+`php artisan tinker`
+`Mail::to($user = App\User::first())->send(new App\Mail\WelcomeAgain($user));`
+Check mailtrap.
+
+To customize an email:
+`php artisan vendor:publish --tag=laravel-mail` Publishes only the ones with the `laravel-mail` Makes a vendor/mail/markdown folder with all the components in the email.  Styles will be under vendor/mail/html/promotion/themes/default.css  To reflect these changes update config/mail.php under markdown => theme.
