@@ -121,7 +121,6 @@ mailtrap.io works well for testing email.
 email from address can be changed rom config/mail.php there's a global from address.
 
 ## 27
-
 `php artisan make:mail WelcomeAgain --markdown="emails.welcome-again` instead of referencing a `->view` it references `->markdown`, it also generets a component to use in our `welcome-again.blade.php` and provides inline styles to our email.
 
 To try this out:
@@ -131,3 +130,15 @@ Check mailtrap.
 
 To customize an email:
 `php artisan vendor:publish --tag=laravel-mail` Publishes only the ones with the `laravel-mail` Makes a vendor/mail/markdown folder with all the components in the email.  Styles will be under vendor/mail/html/promotion/themes/default.css  To reflect these changes update config/mail.php under markdown => theme.
+
+## 28
+What is it requesting:
+`php artisan make:request RegistrationRequest`
+`class RegistrationRequest extends FormRequest` This means that **RegistrationRequest** is a child of **FormRequest** and can access any of the fields in the form just by referencing them.
+
+When a form request class is typed end the logic within that method will never execute unless the validation passes.
+
+How do we know when to call the validate method in the controller and when to create a dedicated form request?
+Keep it as simple as needed.  If only a few fields are validated, it can stay in a controller.  But when it is more intensive with a lot of logic it is better to extract a dedicated form request class.
+
+**Form Request classes** it can be thought of a dedicated form object.  A dedicated form class that can protect itself throu validation rules and can persist itself.
