@@ -76,6 +76,7 @@ public function store()
             ]);
 
             auth()->user()->publish(new Post(request(['title', 'body'])));
+            session()->flash('message', 'Post successful.');
 
     	//* This simplifies the above and automatically saves it:
     	// POST::create([
