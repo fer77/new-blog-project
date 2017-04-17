@@ -17,6 +17,9 @@ class RegistrationController extends Controller
     public function store(RegistrationForm $form)
     {
       $form->persist();
+      //* Create a message to give after user registers:
+      //session('message', 'Here is a deffault message');
+      session()->flash('message', 'Thanks so much for signing up!');
       //* Here we will:
       //* Validate the form.
       // $this->validate(request(), [
