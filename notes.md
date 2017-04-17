@@ -142,3 +142,9 @@ How do we know when to call the validate method in the controller and when to cr
 Keep it as simple as needed.  If only a few fields are validated, it can stay in a controller.  But when it is more intensive with a lot of logic it is better to extract a dedicated form request class.
 
 **Form Request classes** it can be thought of a dedicated form object.  A dedicated form class that can protect itself throu validation rules and can persist itself.
+
+## 29
+We use sessions because HTTP is stateless, this means that data won't persist from page to page. Sessions offer a mechanism to maintain state for a particular user across any number of requests.
+Sessions will exist for the length of the user's session and regenerated each time you sign in.  However, flash is available for only one page load. 
+
+1. visit the controller where you wish to alert the user. Usually this will be before you redirect somewhere.
