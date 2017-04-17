@@ -148,3 +148,17 @@ We use sessions because HTTP is stateless, this means that data won't persist fr
 Sessions will exist for the length of the user's session and regenerated each time you sign in.  However, flash is available for only one page load. 
 
 1. visit the controller where you wish to alert the user. Usually this will be before you redirect somewhere.
+
+## 30
+Associating tags with posts.  Structure:
+
+1. Table for posts and table for tags.
+2. associate one post with one tah.
+
+**Pivot tables** post_tag
+
+`php artisan make:model Tag -m`
+
+In our table the `$table->interger('post_id');` and `$table->interger('tag_id');` creates the relationship between the tags and the posts.  This will be a many to many relationship (Post.php), because one post may have many tags and any tag may be applied to many posts.
+
+`php artisan migrate`
