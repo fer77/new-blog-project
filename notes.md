@@ -162,3 +162,7 @@ Associating tags with posts.  Structure:
 In our table the `$table->interger('post_id');` and `$table->interger('tag_id');` creates the relationship between the tags and the posts.  This will be a many to many relationship (Post.php), because one post may have many tags and any tag may be applied to many posts.
 
 `php artisan migrate`
+
+## 31
+
+How do we deal with route model binding when we are not using the primary key as the identifier?
