@@ -19,9 +19,11 @@ class AppServiceProvider extends ServiceProvider
         //* Register a view composer, with a view facade.
         //* we want "archives" in our blog to be visible everywhere this layout is shown.
         view()->composer('layouts.blog-sidebar', function($view) {
+            $archives = \App\Post::archives();
+            $tags = \App\Tag::has('posts')->pluck('name');
           //* We can hook up to when any view is loaded.
           //* The call back function binds $view to the variable 'archives'.
-          $view->with('archives', \App\Post::archives());
+          $view->with(compact('archives', 'tags'));
         }); //* Now this view will have access to a collection of all posts.
     }
 
