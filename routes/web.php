@@ -24,6 +24,8 @@ Route::get('/posts/{post}', 'PostsController@show');
 //* When we respond to a POST request:
 Route::post('/posts', 'PostsController@store'); // Don't forget to run the 'php artisan make:controller TasksController -r' The -r makes it a "resoursful" controller.
 
+Route::get('/posts/tags/{tag}', 'TagsController@index');
+
 //* To post a post to our database this needs to happen:
 
 //* If we can represent a resource like
