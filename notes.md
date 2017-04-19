@@ -166,3 +166,18 @@ In our table the `$table->interger('post_id');` and `$table->interger('tag_id');
 ## 31
 
 How do we deal with route model binding when we are not using the primary key as the identifier?
+
+## 32
+
+**Events** A particular thing in your application of significance that took place: "order processed", "post archived", or for "thread created".  Significant actions that have taken place in the past, that are now alerting the rest of the aplication. "when a happens b and c will trigger".
+**make:event** a plain php object.
+**make:listener** one or more classes that want to respond to the event that just took place.
+
+an **event** and **listener** will do nothing unless registered in an **EventServiceProvider**.
+
+`event:generate` will read `EventServiceProvider.php` fetch the `$listen` array filter through it and build any file that haven't been created.
+`php artisan event:generate`
+
+`php artisan make:listener CheckForSpam --event="ThreadCreated"`
+
+Even though this is easy to use don't reach for it everytime you need something a controller can handle.  Use this when there are a number of things that will need to respond to an action or situation.
